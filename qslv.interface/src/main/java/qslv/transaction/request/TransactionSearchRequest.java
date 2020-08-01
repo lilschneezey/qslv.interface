@@ -3,6 +3,8 @@ package qslv.transaction.request;
 import java.util.UUID;
 
 public class TransactionSearchRequest {
+	public static String VERSION_1_0="1_0";
+
 	private UUID transactionUuid = null;
 	private UUID reservationUuid = null;
 	

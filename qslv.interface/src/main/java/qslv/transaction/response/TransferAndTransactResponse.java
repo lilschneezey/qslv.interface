@@ -4,7 +4,7 @@ import java.util.List;
 
 import qslv.transaction.resource.TransactionResource;
 
-public class TransferAndTransactReponse {
+public class TransferAndTransactResponse {
 	// internal status codes
 	public static final int SUCCESS = 0;
 	public static final int ALREADY_PRESENT = 1;
@@ -12,9 +12,9 @@ public class TransferAndTransactReponse {
 	private int status = SUCCESS;
 	private List<TransactionResource> transactions = null;
 	
-	public TransferAndTransactReponse() {
+	public TransferAndTransactResponse() {
 	}
-	public TransferAndTransactReponse(int status, List<TransactionResource> transactions) {
+	public TransferAndTransactResponse(int status, List<TransactionResource> transactions) {
 		this.status = status;
 		this.transactions = transactions;
 	}
