@@ -1,4 +1,4 @@
-package qslv.reservation.response;
+package qslv.reservefunds.response;
 
 import java.util.List;
 

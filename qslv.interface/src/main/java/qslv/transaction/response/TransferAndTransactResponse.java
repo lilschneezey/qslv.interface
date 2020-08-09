@@ -7,7 +7,6 @@ import qslv.transaction.resource.TransactionResource;
 public class TransferAndTransactResponse {
 	// internal status codes
 	public static final int SUCCESS = 0;
-	public static final int ALREADY_PRESENT = 1;
 
 	private int status = SUCCESS;
 	private List<TransactionResource> transactions = null;

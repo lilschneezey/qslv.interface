@@ -1,4 +1,4 @@
-package qslv.reservation.request;
+package qslv.reservefunds.request;
 
 import java.util.UUID;
 
@@ -9,6 +9,7 @@ public class ReserveFundsRequest {
 	private String debitCardNumber;
 	private long transactionAmount;
 	private String transactionMetaDataJSON;
+	private boolean protectAgainstOverdraft = false;
 	
 	public UUID getRequestUUID() {
 		return requestUUID;
@@ -48,6 +49,14 @@ public class ReserveFundsRequest {
 
 	public void setTransactionMetaDataJSON(String transactionMetaDataJSON) {
 		this.transactionMetaDataJSON = transactionMetaDataJSON;
+	}
+
+	public boolean isProtectAgainstOverdraft() {
+		return protectAgainstOverdraft;
+	}
+
+	public void setProtectAgainstOverdraft(boolean protectAgainstOverdraft) {
+		this.protectAgainstOverdraft = protectAgainstOverdraft;
 	}
 
 	public String toString() {

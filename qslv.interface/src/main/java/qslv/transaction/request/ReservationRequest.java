@@ -11,6 +11,7 @@ public class ReservationRequest {
 	private long transactionAmount = 0L;
 	private String transactionMetaDataJson;
 	private boolean authorizeAgainstBalance = true;
+	//TODO remove this field
 	private boolean protectAgainstOverdraft = true;
 
 	public UUID getRequestUuid() {

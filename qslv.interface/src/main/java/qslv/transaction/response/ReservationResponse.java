@@ -5,7 +5,6 @@ import qslv.transaction.resource.TransactionResource;
 public class ReservationResponse {
 	// internal status codes
 	public static final int SUCCESS = 0;
-	public static final int ALREADY_PRESENT = 1;
 	public static final int INSUFFICIENT_FUNDS = 2;
 
 	private int status = SUCCESS;
