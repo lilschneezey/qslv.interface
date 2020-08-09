@@ -3,6 +3,8 @@ package qslv.transaction.request;
 import java.util.UUID;
 
 public class CancelReservationRequest {
+	public static String VERSION_1_0="1_0";
+	
 	private String accountNumber;
 	private UUID requestUuid;
 	private UUID reservationUuid;

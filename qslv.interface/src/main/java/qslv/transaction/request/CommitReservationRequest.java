@@ -3,6 +3,8 @@ package qslv.transaction.request;
 import java.util.UUID;
 
 public class CommitReservationRequest {
+	public static String VERSION_1_0="1_0";
+
 	private UUID requestUuid;
 	private UUID reservationUuid;
 	private String accountNumber;

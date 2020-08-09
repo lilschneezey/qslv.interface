@@ -1,7 +1,5 @@
 package qslv.transfer.response;
 
-import java.util.List;
-
 import qslv.transaction.resource.TransactionResource;
 import qslv.transfer.request.TransferFulfillmentMessage;
 
@@ -9,12 +7,11 @@ public class TransferFundsResponse {
 	// internal status codes
 	public static final int SUCCESS = 0;
 	public static final int INSUFFICIENT_FUNDS = 2;
-	public static final int SUCCESS_OVERDRAFT = 3;
 	public static final int FAILURE = 4;
 
 	private int status = SUCCESS;
-	private List<TransactionResource> reservations = null;
-	private TransferFulfillmentMessage fulfillmentMessage;
+	private TransactionResource reservation = null;
+	private TransferFulfillmentMessage fulfillmentMessage = null;
 
 	public int getStatus() {
 		return status;
@@ -24,12 +21,12 @@ public class TransferFundsResponse {
 		this.status = status;
 	}
 
-	public List<TransactionResource> getReservations() {
-		return reservations;
+	public TransactionResource getReservation() {
+		return reservation;
 	}
 
-	public void setReservations(List<TransactionResource> reservations) {
-		this.reservations = reservations;
+	public void setReservation(TransactionResource reservation) {
+		this.reservation = reservation;
 	}
 
 	public TransferFulfillmentMessage getFulfillmentMessage() {
