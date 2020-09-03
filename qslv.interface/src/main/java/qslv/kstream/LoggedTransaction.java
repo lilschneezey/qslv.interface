@@ -1,9 +1,9 @@
-package qslv.transaction.resource;
+package qslv.kstream;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class TransactionResource {
+public class LoggedTransaction {
 	
 	private UUID requestUuid = null;
 	private UUID transactionUuid = null;
@@ -14,14 +14,15 @@ public class TransactionResource {
 	private long runningBalanceAmount = 0;
 	private UUID reservationUuid = null;
 	private String transactionMetaDataJson = null;
-	private Timestamp insertTimeStamp=null;
-	private short idempotentCount;
+	private LocalDateTime transactionTime=null;
 	
 	public final static String NORMAL="NM";
 	public final static String RESERVATION="RS";
 	public final static String RESERVATION_COMMIT="RC";
 	public final static String RESERVATION_CANCEL="RX";
 	public final static String REJECTED_TRANSACTION="RJ"; 
+	public final static String TRANSFER_FROM="TF"; 
+	public final static String TRANSFER_TO="TT"; 
 
 	public UUID getRequestUuid() {
 		return requestUuid;
@@ -76,20 +77,13 @@ public class TransactionResource {
 	}
 	public void setTransactionMetaDataJson(String transactionMetaDataJson) {
 		this.transactionMetaDataJson = transactionMetaDataJson;
+	}	
+	public LocalDateTime getTransactionTime() {
+		return transactionTime;
 	}
-	public Timestamp getInsertTimestamp() {
-		return insertTimeStamp;
+	public void setTransactionTime(LocalDateTime transactionTime) {
+		this.transactionTime = transactionTime;
 	}
-	public void setInsertTimestamp(Timestamp insertTimestamp) {
-		this.insertTimeStamp = insertTimestamp;
-	}
-	public short getIdempotentCount() {
-		return idempotentCount;
-	}
-	public void setIdempotentCount(short idempotentCount) {
-		this.idempotentCount = idempotentCount;
-	}
-	
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
 		buf.append("TransactionResource: ");
@@ -102,8 +96,7 @@ public class TransactionResource {
 		buf.append(", runningBalance_am: "); buf.append(getRunningBalanceAmount());
 		buf.append(", reservation_uuid: "); buf.append(getReservationUuid()==null ? "null" : getReservationUuid().toString());
 		buf.append(", transactionMetaData_json: "); buf.append(getTransactionMetaDataJson() == null ? "null" : getTransactionMetaDataJson());
-		buf.append(", idempotentCount: ").append(idempotentCount);
-		buf.append(", insert_tsz: "); buf.append(getInsertTimestamp() == null ? "null" : getInsertTimestamp().toLocalDateTime().toString());
+		buf.append(", insert_tsz: "); buf.append(transactionTime == null ? "null" : transactionTime.toString());
 		return buf.toString();
 	}
 
